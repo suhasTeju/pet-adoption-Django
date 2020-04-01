@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block 'body' %}
+<div class="container">
+
+<h1>order pizzas</h1>
+
+<h2>{{ note }}</h2>
+
+<form  action="pizzas" method="post">
+  {% csrf_token %}
+  {{formset.management_form}}
+
+
+  {% for form in formset %}
+  {{ form }}
+  <br></br>
+  {% endfor %}
+  <input type="submit" value="order now">
+
+
+</form>
+</div>
+{% endblock %}
